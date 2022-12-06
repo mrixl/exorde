@@ -1,0 +1,10 @@
+sudo apt update && sudo apt upgrade -y
+sudo apt install wget jq build-essential nano unzip -y
+
+. <(wget -qO- https://raw.githubusercontent.com/letsnode/Utils/main/installers/docker.sh)
+echo "export EXORDE_WALLET=<YOUR_METAMASK_WALLET_ADDRESS>" >> $HOME/.bash_profile
+source $HOME/.bash_profile
+git clone https://github.com/exorde-labs/ExordeModuleCLI.git $HOME/ExordeModuleCLI
+cd $HOME/ExordeModuleCLI
+docker build -t exorde-cli .
+docker run -d -e PYTHONUNBUFFERED=1 --restart always --name exorde exorde-cli -m $EXORDE_WALLET -l 2

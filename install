@@ -1,6 +1,5 @@
 sudo apt update && sudo apt upgrade -y
 sudo apt install wget jq build-essential nano unzip -y
-
 . <(wget -qO- https://raw.githubusercontent.com/letsnode/Utils/main/installers/docker.sh)
 echo "export EXORDE_WALLET=<YOUR_METAMASK_WALLET_ADDRESS>" >> $HOME/.bash_profile
 source $HOME/.bash_profile
